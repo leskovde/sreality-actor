@@ -1,7 +1,5 @@
 {
-  "startUrls": [
-    {
-      "url": "https://example.com"
-    }
-  ]
+    "startUrls": [{
+        "url": "http://example.com"
+    }]
 }
