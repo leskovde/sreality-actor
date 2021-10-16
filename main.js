@@ -1,9 +1,3 @@
-/**
- * This template is a production ready boilerplate for developing with `PuppeteerCrawler`.
- * Use this to bootstrap your projects using the most up-to-date code.
- * If you're looking for examples or want to learn more, see README.
- */
-
 const Apify = require('apify');
 const { handleStart, handleList, handleDetail } = require('./src/routes');
 
@@ -21,8 +15,6 @@ Apify.main(async () => {
         requestQueue,
         proxyConfiguration,
         launchContext: {
-            // Chrome with stealth should work for most websites.
-            // If it doesn't, feel free to remove this.
             useChrome: false,
             stealth: true,
         },
