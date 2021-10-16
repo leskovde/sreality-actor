@@ -30,7 +30,7 @@ exports.handleList = async ({ request, page, crawler }) => {
     );
     log.info("[LIST]: Scraped");
 
-    await Apify.pushData({ data: listings });
+    //await Apify.pushData({ data: listings });
     for (let index = 0; index < listings.length; index++) {
         const request = listings[index];
         await crawler.requestQueue.addRequest(request);
@@ -49,12 +49,8 @@ exports.handleDetail = async ({ request, page }) => {
     let advertContainer = await page.$$eval(".advert-detail-fixed-top__content-info", $list => {
         const item = Array.from($list)[0];
         
-        //return {"xd" : item.innerHTML};
-
-        const headerText = item.querySelector("h4").textContent;
-        const sellingType = headerText.split("-")[0].trim();
-
-        const buildingType = headerText.split("-")[1].split(",")[0];
+        const headerText = item.querySelector("h4").textContent.trim();
+        const buildingType = headerText.split(",")[0].trim();
         const location = item.querySelector("p").textContent.trim();
         
         const highlight = item.querySelector("strong");
@@ -63,7 +59,6 @@ exports.handleDetail = async ({ request, page }) => {
         flag = true;
 
         return [
-            {"sellingType" : sellingType}, 
             {"buildingType" : buildingType},
             {"location" : location},
             {"price" : price}
@@ -71,7 +66,6 @@ exports.handleDetail = async ({ request, page }) => {
     });
 
     let propertyElList = await page.$$eval(".detail-information__data-item", $list => {
-
         const items = [];
 
         $list.forEach($item => {
@@ -84,7 +78,13 @@ exports.handleDetail = async ({ request, page }) => {
         return items;
     });
 
-    await Apify.pushData({"header" : advertContainer, "properties" : propertyElList});
+    let description = await page.$$eval(".advert-description__text-inner-inner", $list => {
+        const item = Array.from($list)[0];
+
+        return {"description" : item.textContent.trim()};
+    });
+
+    await Apify.pushData({"header" : advertContainer, "properties" : propertyElList, "description" : description});
 
     log.info("[DETAIL]: Detail info done.");
 };
