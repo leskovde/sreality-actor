@@ -1,7 +1,7 @@
 {
-	"name": "sreality-actor",
+	"name": "sreality-scraper",
 	"version": "0.0",
 	"buildTag": "latest",
 	"env": null,
-	"template": "project_puppeteer_crawler"
+	"template": "project_cheerio_crawler"
 }
