@@ -1,4 +1,4 @@
-![1](C:\Users\Denis\Downloads\1.png)
+![1](.\1.png)
 
 tohle je main js kde se definuje crawler, ktery vam prohleda prave webove stranky 
 
@@ -20,7 +20,7 @@ tohle je main js kde se definuje crawler, ktery vam prohleda prave webove strank
 
    ------
 
-![2](C:\Users\Denis\Downloads\2.png)
+![2](.\2.png)
 
 tohle jsou samotne routes.js funkce 
 
@@ -30,7 +30,7 @@ tohle jsou samotne routes.js funkce
 
    ------
 
-![3](C:\Users\Denis\Downloads\3.png)
+![3](.\3.png)
 
 1) dalsi zpusob extrakce dat je jednotlive a ne hromadne a to pomoci  page.evaluate udelam si nejaky specialni querySelector, ktery  identifikuje jeden element a pak s nim neco provadim  
 
@@ -42,6 +42,6 @@ tohle jsou samotne routes.js funkce
 
    ------
 
-![4](C:\Users\Denis\Downloads\4.png)
+![4](.\4.png)
 
 1) 2) 3) tady opet jeden element
