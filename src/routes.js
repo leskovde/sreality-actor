@@ -4,12 +4,6 @@ const {
     utils: { log },
 } = Apify;
 
-exports.handleStart = async ({ request, page }) => {
-    log.info("[START]: Start");
-    // Handle Start URLs
-    log.info("[START]: End");
-};
-
 exports.handleList = async ({ request, page, crawler }) => {
     log.info("[LIST]: Start");
     const listings = await page.$$eval(

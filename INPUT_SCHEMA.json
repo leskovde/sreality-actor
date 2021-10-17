@@ -1,20 +1,81 @@
 {
-  "title": "PuppeteerCrawler Template",
-  "description": "lorem ipsum",
+  "title": "RealityMix properties",
+  "description": "Properties for flat scraping.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "startUrls": {
-      "title": "Start URLs",
-      "type": "array",
-      "description": "URLs to start with.",
-      "editor": "requestListSources",
-      "prefill": [
-        { "url": "https://apify.com" }
-      ]
+    "state": {
+      "title": "State",
+      "type": "string",
+      "description": "The state in Czech",
+      "editor": "textfield"
+    },
+    "priceStart": {
+      "title": "PriceRangeStart",
+      "type": "integer",
+      "description": "The lower bound of the price range.",
+      "editor": "number"
+    },
+    "priceEnd": {
+      "title": "PriceRangeEnd",
+      "type": "integer",
+      "description": "The upper bound of the price range.",
+      "editor": "number"
+    },
+    "layout": {
+      "title": "FlatLayout",
+      "type": "string",
+      "description": "The layout of the property.",
+      "editor": "textfield"
+    },
+    "advertType": {
+      "title": "AdvertisementType",
+      "type": "string",
+      "description": "The type of the advertisement",
+      "editor": "textfield"
+    },
+    "buildingType": {
+      "title": "BuildingType",
+      "type": "string",
+      "description": "The type of the building",
+      "editor": "textfield"
+    },
+    "areaFrom": {
+      "title": "AreaRangeFrom",
+      "type": "integer",
+      "description": "The lower bound of the m2 area.",
+      "editor": "number"
+    },
+    "areaTo": {
+      "title": "AreaRangeTo",
+      "type": "integer",
+      "description": "The upper bound of the m2 area.",
+      "editor": "number"
+    },
+    "levelFrom": {
+      "title": "FlatLevelRangeFrom",
+      "type": "integer",
+      "description": "The lower bound of the level on which the flat should be located.",
+      "editor": "number"
+    },
+    "levelTo": {
+      "title": "FlatLevelRangeTo",
+      "type": "integer",
+      "description": "The upper bound of the level on which the flat should be located.",
+      "editor": "number"
+    },
+    "ownershipType": {
+      "title": "OwnershipType",
+      "type": "string",
+      "description": "The type of the ownership.",
+      "editor": "textfield"
     }
   },
   "required": [
-    "startUrls"
+    "state",
+    "layout",
+    "advertType",
+    "buildingType",
+    "ownershipType"
   ]
 }
