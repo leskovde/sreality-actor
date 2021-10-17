@@ -8,7 +8,9 @@
       "title": "State",
       "type": "string",
       "description": "The state in Czech",
-      "editor": "textfield"
+      "editor": "select",
+      "default": "Praha",
+      "enum": ["Praha", "Jihočeský kraj", "Jihomoravský kraj", "Karlovarský kraj", "Královéhradecký kraj", "Liberecký kraj", "Moravskoslezský kraj", "Olomoucký kraj", "Pardubický kraj", "Plzeňský kraj", "Středočeský kraj", "Ústecký kraj", "Vysočina", "Zlínský kraj"]
     },
     "priceStart": {
       "title": "PriceRangeStart",
@@ -26,19 +28,25 @@
       "title": "FlatLayout",
       "type": "string",
       "description": "The layout of the property.",
-      "editor": "textfield"
+      "editor": "select",
+      "default": "1+kk",
+      "enum": ["1+kk", "1+1", "2+kk", "2+1", "3+kk", "3+1", "4+kk", "5+kk", "5+1", "6+kk", "6+1", "7+kk", "7+1", "Atypický", "Jiný"]
     },
     "advertType": {
       "title": "AdvertisementType",
       "type": "string",
       "description": "The type of the advertisement",
-      "editor": "textfield"
+      "editor": "select",
+      "default": "Vše",
+      "enum": ["Prodej", "Pronájem", "Vše"]
     },
     "buildingType": {
       "title": "BuildingType",
       "type": "string",
       "description": "The type of the building",
-      "editor": "textfield"
+      "editor": "select",
+      "default": "Byty",
+      "enum": ["Byty"]
     },
     "areaFrom": {
       "title": "AreaRangeFrom",
@@ -68,7 +76,9 @@
       "title": "OwnershipType",
       "type": "string",
       "description": "The type of the ownership.",
-      "editor": "textfield"
+      "editor": "select",
+      "default": "osobní vlastnictví",
+      "enum": ["osobní vlastnictví", "družstevní vlastnictví", "jiné vlastnictví"]
     }
   },
   "required": [

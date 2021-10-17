@@ -4,7 +4,7 @@ Puppeteer-based real estate advertisement scraper.
 
 ## Usage
 
-Several input properties support a full text specification of their value. Once the required input is specified, the actor constructs an URL with the specified filter. The linked page features 20 listings, which leads to a maximum of 20 listings collected in a single Actor run. The property `pageNumber` specifies the page of the search, thus allowing to collect more than 20 listings over several runs. The Actor uses Puppeteer, the minimum required memory for running is 2048 MB.
+Several input properties support a full text specification of their value. Once the required input is specified, the actor constructs an URL with the specified filter. The linked page features 20 listings. The actor switches the pages during the search, thus allowing to collect more than 20 listings in a single run. The Actor uses Puppeteer, the minimum required memory for running is 2048 MB.
 
 ## Input
 
@@ -12,7 +12,7 @@ Since some properties support full text values, we provide a comprehensive list 
 
 | Property name     | Possible values        | Required           |
 | ----------------- | ---------------------- | ------------------ |
-| **state**         | Praha                  | :heavy_check_mark: |
+| **state**         | Praha                  | **yes**            |
 |                   | Jihočeský kraj         |                    |
 |                   | Jihomoravský kraj      |                    |
 |                   | Karlovarský kraj       |                    |
@@ -26,7 +26,7 @@ Since some properties support full text values, we provide a comprehensive list 
 |                   | Ústecký kraj           |                    |
 |                   | Vysočina               |                    |
 |                   | Zlínský kraj           |                    |
-| **layout**        | Garsoniéra             | :heavy_check_mark: |
+| **layout**        | Garsoniéra             | **yes**            |
 |                   | 1+kk                   |                    |
 |                   | 1+1                    |                    |
 |                   | 2+kk                   |                    |
@@ -43,23 +43,22 @@ Since some properties support full text values, we provide a comprehensive list 
 |                   | 7+1                    |                    |
 |                   | Atypický               |                    |
 |                   | Jiný                   |                    |
-| **advertType**    | Prodej                 | :heavy_check_mark: |
+| **advertType**    | Prodej                 | **yes**            |
 |                   | Pronájem               |                    |
 |                   | Vše                    |                    |
-| **buildingType**  | Byty                   | :heavy_check_mark: |
+| **buildingType**  | Byty                   | **yes**            |
 |                   | Domy                   |                    |
 |                   | Chaty                  |                    |
 |                   | Pozemky                |                    |
-| **ownershipType** | osobní vlastnictví     | :heavy_check_mark: |
+| **ownershipType** | osobní vlastnictví     | **yes**            |
 |                   | družstevní vlastnictví |                    |
 |                   | jiné vlastnictví       |                    |
-| **priceStart**    | 0, 1, ...              | **:x:**            |
-| **priceEnd**      | 0, 1, ...              | **:x:**            |
-| **areaFrom**      | 0, 1, ...              | **:x:**            |
-| **areaTo**        | 0, 1, ...              | **:x:**            |
-| **levelFrom**     | 0, 1, ...              | **:x:**            |
-| **levelTo**       | 0, 1, ...              | **:x:**            |
-| **pageNumber**    | 1, 2, ...              | **:x:**            |
+| **priceStart**    | 0, 1, ...              | **no**             |
+| **priceEnd**      | 0, 1, ...              | **no**             |
+| **areaFrom**      | 0, 1, ...              | **no**             |
+| **areaTo**        | 0, 1, ...              | **no**             |
+| **levelFrom**     | 0, 1, ...              | **no**             |
+| **levelTo**       | 0, 1, ...              | **no**             |
 
 ## Output
 
