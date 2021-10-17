@@ -6,6 +6,7 @@ const {
 
 exports.handleList = async ({ request, page, crawler }) => {
     log.info("[LIST]: Start");
+   
     const listings = await page.$$eval(
         ".advert-list-items__content",
         ($listing) => {
@@ -20,24 +21,19 @@ exports.handleList = async ({ request, page, crawler }) => {
                 });
             });
             return items;
-        }
-    );
+        });
+
     log.info("[LIST]: Scraped");
 
-    //await Apify.pushData({ data: listings });
     for (let index = 0; index < listings.length; index++) {
         const request = listings[index];
         await crawler.requestQueue.addRequest(request);
     }
-    /*for (const listing of listings) {
-        const dataObj = Object.assign({}, request.userData.user, listing);
-        await Apify.pushData(dataObj);
-    }*/
+
     log.info("[LIST]: Listings pushed");
 };
 
 exports.handleDetail = async ({ request, page }) => {
-    // Handle details
     log.info("[DETAIL]: Getting detail info.");
 
     let advertContainer = await page.$$eval(".advert-detail-fixed-top__content-info", $list => {
@@ -59,6 +55,29 @@ exports.handleDetail = async ({ request, page }) => {
         ]
     });
 
+    let mainImage = await page.$$eval(".gallery__main-img-inner", $list => {
+        const item = Array.from($list)[0];
+
+        const imageUrl = item.querySelector("img").src;
+
+        return { "imageUrl" : imageUrl }
+    });
+
+    let smallImages = await page.$$eval(".gallery__item--image", $list => {
+        const items = [];
+
+        $list.forEach($item => {
+            const imageContainer = $item.querySelector("a");
+            const imageUrl = imageContainer.querySelector("img").src;
+
+            items.push({ "imageUrl" : imageUrl });
+        });
+        
+        return items;
+    });
+
+    let images = [ mainImage ].concat(smallImages);
+
     let propertyElList = await page.$$eval(".detail-information__data-item", $list => {
         const items = [];
 
@@ -78,7 +97,7 @@ exports.handleDetail = async ({ request, page }) => {
         return {"description" : item.textContent.trim()};
     });
 
-    await Apify.pushData({"header" : advertContainer, "properties" : propertyElList, "description" : description});
+    await Apify.pushData({"header" : advertContainer, "images" : images, "properties" : propertyElList, "description" : description });
 
     log.info("[DETAIL]: Detail info done.");
 };

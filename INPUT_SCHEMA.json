@@ -69,6 +69,12 @@
       "type": "string",
       "description": "The type of the ownership.",
       "editor": "textfield"
+    },
+    "pageNumber": {
+      "title": "SearchPageNumber",
+      "type": "integer",
+      "description": "The page number of the search, each page has 20 results.",
+      "editor": "number"
     }
   },
   "required": [
