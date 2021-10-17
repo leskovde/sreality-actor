@@ -52,7 +52,6 @@ const getAndValidateInput = async () => {
         levelFrom,
         levelTo,
         ownershipType,
-        pageNumber
     } = input;
 
     state = stateToInt(state);
@@ -68,8 +67,6 @@ const getAndValidateInput = async () => {
     levelFrom = maybeThis(levelFrom);
     levelTo = maybeThis(levelTo);
 
-    pageNumber = (pageNumber === undefined) ? 1 : pageNumber;
-
     log.info("----- Input overview -----");
     log.info(`Search state: ${state}`);
     log.info(`Search priceStart: ${priceStart}`);
@@ -82,7 +79,6 @@ const getAndValidateInput = async () => {
     log.info(`Search levelFrom: ${levelFrom}`);
     log.info(`Search levelTo: ${levelTo}`);
     log.info(`Search ownershipType: ${ownershipType}`);
-    log.info(`Search page number: ${pageNumber}`);
     log.info("----- End of input overview -----");
 
     return {
@@ -97,7 +93,6 @@ const getAndValidateInput = async () => {
         levelFrom,
         levelTo,
         ownershipType,
-        pageNumber
     };
 }
 
